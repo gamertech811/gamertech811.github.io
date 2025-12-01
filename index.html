@@ -5,45 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Projetos</title>
     <style>
+        :root {
+            --cor-primaria: #4da3ff;
+            --cor-fundo: #363636;
+            --cor-card: #404040;
+            --cor-texto: #f0f0f0;
+            --cor-card-hover: #4a4a4a;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--cor-fundo);
             margin: 0;
             padding: 40px;
+            color: var(--cor-texto);
         }
-        h1 {
-            color: #0078D7;
+
+        h1, h2 {
+            color: var(--cor-primaria);
+            margin-bottom: 10px;
         }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: var(--cor-card);
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.4);
+        }
+
         a {
-            color: #0078D7;
+            color: var(--cor-primaria);
             text-decoration: none;
+            font-weight: 600;
         }
+
         a:hover {
             text-decoration: underline;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+        /* ---- link-card ---- */
+        .link-card {
+            display: block;
+            text-decoration: none !important;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .link-card:hover {
+            text-decoration: none !important;
+        }
+
+        .projeto {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--cor-primaria);
+            background: #3a3a3a;
+            border-radius: 8px;
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+
+        .link-card:hover .projeto {
+            transform: translateX(4px);
+            background: var(--cor-card-hover);
+        }
+
+        /* ---- TÍTULO + underline animado 100% ---- */
+        .projeto h3 {
+            margin: 0;
+            color: var(--cor-primaria);
+            position: relative;
+            display: inline-block;
+        }
+
+        .projeto h3::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -2px;
+            background-color: var(--cor-primaria);
+            transition: width 0.15s ease;
+        }
+
+        .link-card:hover h3::after {
+            width: 100%; /* AGORA PEGA O TÍTULO INTEIRO */
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #d0d0d0;
+            font-size: 14px;
+        }
+
+        .emoji {
+            font-size: 22px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Meus Projetos Pessoais</h1>
-        <p>Bem-vindo ao meu site! Aqui estão alguns dos meus projetos e ideias.</p>
+        <h1>Meus Projetos Pessoais <span class="emoji">🚀</span></h1>
+        <p>Aqui estão algumas coisas que fiz entre cafés, curiosidade e vontade de aprender mais.</p>
 
         <h2>Projetos</h2>
-        <ul>
-            <li><a href="https://github.com/gamertech811/bruteforcerzipfile_withCMD">ZIP bruteforce</a></li>
-            <li><a href="https://github.com/gamertech811/Youtube-Downloader">youtube downloader</a></li>
-        </ul>
 
-        <p>Visite meu perfil no <a href="https://github.com/gamertech811">GitHub</a>.</p>
+        <a class="link-card" href="https://github.com/gamertech811/bruteforcerzipfile_withCMD" target="_blank">
+            <div class="projeto">
+                <h3>ZIP Bruteforce</h3>
+                <p>Ferramenta para testar combinações de senha em arquivos ZIP direto pelo CMD.</p>
+            </div>
+        </a>
+
+        <a class="link-card" href="https://github.com/gamertech811/Youtube-Downloader" target="_blank">
+            <div class="projeto">
+                <h3>YouTube Downloader</h3>
+                <p>Baixa vídeos do YouTube de forma rápida e prática.</p>
+            </div>
+        </a>
+
+        <p>Mais no meu <a href="https://github.com/gamertech811">GitHub</a>.</p>
+
+        <footer>
+            Feito com calma, café e um pouco de teimosia <span class="emoji">☕</span>
+        </footer>
     </div>
 </body>
 </html>
